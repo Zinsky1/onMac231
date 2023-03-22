@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars List</title>
+</head>
+<body>
+    <h1>How many cars to show?</h1>
+    <form method="get" action="cars?num=submit">
+        <dl>
+            <dt>Number of cars to show: </dt>
+            <dd><input th:type="number" th:name="num" th:value="${num}" th:placeholder="'enter a number'" /></dd>
+        </dl>
+        <button type="submit">Save</button>
+
+    </form>
+
+   <h1>Counted Cars List</h1>
+    <table>
+        <tr>
+            <th>---------Model---------</th>
+            <th>---------Fuel---------</th>
+            <th>---------Number---------</th>
+        </tr>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.model}">model</td>
+            <td th:text="${car.fuel}">fuel</td>
+            <td th:text="${car.carNumber}">number</td>
+        </tr>
+    </table>
+
+
+
+</body>
+</html>
